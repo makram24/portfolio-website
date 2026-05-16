@@ -1,0 +1,117 @@
+.engineering-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: auto auto 120px;
+  padding: 80px 0;
+}
+
+.engineering-section h2 {
+  font-size: clamp(2.5rem, 6vw, 4.375rem);
+  line-height: 1;
+  font-weight: 400;
+  text-align: center;
+  background: linear-gradient(0deg, var(--accentColor), var(--textColor));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 60px;
+}
+
+.engineering-section h2 > span {
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+.engineering-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.engineering-info-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--borderColor);
+}
+
+.engineering-info-box:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.engineering-info-in {
+  display: flex;
+  width: 100%;
+  max-width: 55%;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.engineering-info-in h3 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0;
+  font-weight: 500;
+  color: var(--accentColor);
+}
+
+.engineering-role h4 {
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.engineering-role h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--accentColor);
+  margin: 8px 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.engineering-info-box > p {
+  width: 100%;
+  max-width: 42%;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: var(--textMuted);
+}
+
+.engineering-stack {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.engineering-stack span {
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--accentMuted);
+  color: var(--textColor);
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 900px) {
+  .engineering-info-in {
+    max-width: 100%;
+  }
+
+  .engineering-info-box > p {
+    max-width: 100%;
+  }
+}

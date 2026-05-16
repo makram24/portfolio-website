@@ -1,0 +1,147 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  max-width: var(--cMaxWidth);
+  width: var(--cWidth);
+  padding: 15px 0px;
+  margin-bottom: -80px;
+  box-sizing: border-box;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  z-index: 9999;
+}
+
+.header ul {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 10px;
+  column-gap: 8px;
+  letter-spacing: 0.06em;
+}
+
+.header ul li {
+  margin: 0;
+  flex: 1 1 0;
+  text-align: center;
+}
+
+.header ul li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 4px 2px;
+  box-sizing: border-box;
+  letter-spacing: 0.08px;
+  color: var(--textColor);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.navbar-logo {
+  display: block;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+}
+
+@media only screen and (min-width: 500px) {
+  .header {
+    padding: 20px 0px;
+    gap: 16px;
+  }
+
+  .header ul {
+    font-size: 14px;
+    column-gap: 16px;
+  }
+
+  .header ul li a {
+    min-height: 44px;
+    padding: 6px 4px;
+    color: var(--textColor);
+  }
+
+  .navbar-logo {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .header ul li a {
+    color: var(--textColor);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header {
+    padding: 35px 0px;
+    gap: 24px;
+  }
+
+  .header ul {
+    font-size: 16px;
+    column-gap: clamp(24px, 5vw, 80px);
+    justify-content: space-between;
+  }
+
+  .navbar-logo {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header {
+    margin-bottom: 0;
+    padding: 14px 0 10px;
+    background: linear-gradient(
+      180deg,
+      var(--backgroundColor) 72%,
+      transparent 100%
+    );
+  }
+
+  .navbar-logo {
+    width: 38px;
+    height: 38px;
+    mix-blend-mode: multiply;
+  }
+
+  .header ul {
+    font-size: 9px;
+    letter-spacing: 0.04em;
+    column-gap: 4px;
+  }
+
+  .header ul li a {
+    letter-spacing: 0.06em;
+    color: var(--textColor);
+  }
+
+  .nav-fade {
+    height: 100px;
+    opacity: 1;
+  }
+}

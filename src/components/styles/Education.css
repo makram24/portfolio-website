@@ -1,0 +1,229 @@
+/* Mirrors career-section layout and motion language */
+.education-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  place-items: center;
+  justify-content: center;
+  position: relative;
+  opacity: 1;
+  height: auto;
+  margin: auto;
+  margin-bottom: 200px;
+  padding: 100px 0;
+}
+
+.education-section h2 {
+  font-size: 70px;
+  line-height: 70px;
+  font-weight: 400;
+  text-align: center;
+  background: linear-gradient(0deg, var(--accentColor), var(--textColor));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  margin-top: 50px;
+  margin-bottom: 90px;
+}
+
+.education-section h2 > span {
+  font-family: var(--font-body);
+  font-weight: 300;
+}
+
+.education-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.education-info-box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.education-info-box p {
+  width: 40%;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0;
+  line-height: 20px;
+  color: var(--textMuted);
+}
+
+.education-info-in {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.education-info h3 {
+  font-size: 48px;
+  margin: 0;
+  font-weight: 500;
+  line-height: 45px;
+  font-family: var(--font-display);
+}
+
+.education-info h4 {
+  font-size: 33px;
+  line-height: 30px;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.education-info h5 {
+  font-weight: 400;
+  letter-spacing: 0.7px;
+  font-size: 20px;
+  text-transform: capitalize;
+  margin: 10px 0;
+  color: var(--accentColor);
+}
+
+.education-timeline {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background-image: linear-gradient(
+    to top,
+    var(--accentTimeline) 20%,
+    var(--accentColor) 50%,
+    transparent 95%
+  );
+  max-height: 0%;
+}
+
+.education-dot {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  background-color: var(--accentTimeline);
+  width: 10px;
+  height: 10px;
+  border-radius: 50px;
+  box-shadow:
+    0 0 5px 2px var(--accentTimelineGlow),
+    0 0 15px 8px var(--accentColorSoft),
+    0 0 110px 20px var(--accentMuted);
+  animation: education-timeline-pulse 0.8s linear infinite forwards;
+}
+
+@keyframes education-timeline-pulse {
+  10%,
+  20%,
+  50%,
+  70%,
+  90% {
+    box-shadow: 0 0 5px 2px var(--accentTimelineGlow);
+  }
+
+  10%,
+  30%,
+  0%,
+  100%,
+  64%,
+  80% {
+    box-shadow:
+      0 0 5px 2px var(--accentTimelineGlow),
+      0 0 15px 5px var(--accentColorSoft),
+      0 0 110px 20px var(--accentMuted);
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .education-section h2 {
+    font-size: 50px;
+    line-height: 50px;
+  }
+
+  .education-info h4 {
+    font-size: 22px;
+    line-height: 24px;
+    width: 180px;
+  }
+
+  .education-info h5 {
+    font-size: 17px;
+  }
+
+  .education-info h3 {
+    font-size: 40px;
+  }
+
+  .education-info-in {
+    width: 45%;
+    gap: 20px;
+  }
+
+  .education-info-box p {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .education-section {
+    padding: 70px 0;
+    padding-top: 100px;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .education-info-box {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 70px;
+  }
+
+  .education-info-in,
+  .education-info-box p {
+    width: 100%;
+    padding-left: 10%;
+    box-sizing: border-box;
+  }
+
+  .education-timeline {
+    left: 0;
+  }
+
+  .education-container {
+    width: calc(100% - 25px);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .education-section h2 {
+    width: 100%;
+    font-size: 45px;
+    line-height: 45px;
+    margin-top: 0;
+  }
+
+  .education-info h3 {
+    font-size: 25px;
+    line-height: 1.25;
+  }
+
+  .education-info-in,
+  .education-info-box p {
+    padding-left: 5%;
+  }
+
+  .education-section {
+    padding-top: 90px;
+    align-items: start;
+    place-items: inherit;
+    justify-content: left;
+  }
+}

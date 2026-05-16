@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Syne:wght@400..800&display=swap");
+@import "./components/styles/mobile-layout.css";
+
+:root {
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Syne", system-ui, sans-serif;
+
+  font-family: var(--font-body);
+  font-optical-sizing: auto;
+  font-style: normal;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  color-scheme: light;
+
+  --accentColor: #ba9361;
+  --accentColorSoft: #d4b07a;
+  --accentMuted: #f5efe6;
+  --accentTimeline: #d4a96a;
+  --accentTimelineGlow: #e8c99a;
+  --accentOrb: #e8c99a;
+  --backgroundColor: #f6f5fa;
+  --surfaceColor: #ffffff;
+  --surfaceMuted: #f3ede4;
+  --textColor: #1c1829;
+  --textMuted: #5e5869;
+  --textOnAccent: #ffffff;
+  --borderColor: rgba(28, 24, 41, 0.14);
+  --borderStrong: rgba(28, 24, 41, 0.28);
+  --shadowColor: rgba(28, 24, 41, 0.08);
+  --glowAccent: rgba(186, 147, 97, 0.25);
+  --glowAccentStrong: rgba(186, 147, 97, 0.4);
+  --glowAccentSubtle: rgba(186, 147, 97, 0.15);
+  --vh: 100vh;
+  --vh: 100svh;
+
+  color: var(--textColor);
+  background-color: var(--backgroundColor);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  color: var(--textColor);
+  letter-spacing: -0.02em;
+}
+
+p,
+a,
+button,
+input,
+textarea,
+li {
+  font-family: var(--font-body);
+}
+
+.route-suspense-fallback {
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: var(--backgroundColor);
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  height: auto;
+  background-color: var(--backgroundColor);
+  flex-grow: 1;
+  --cWidth: calc(100% - 30px);
+  --cMaxWidth: 1920px;
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  color: var(--textColor);
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    touch-action: pan-y;
+  }
+
+  #root {
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .main-body {
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 100vh;
+  }
+
+  .container-main {
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .about-section,
+  .career-section,
+  .education-section,
+  .certifications-section,
+  .work-section,
+  .whatIDO,
+  .engineering-section,
+  .contact-section,
+  .highlights-section,
+  .cta-section {
+    scroll-margin-top: 88px;
+  }
+
+  .contact-section a,
+  .contact-section p,
+  .contact-box h2,
+  .navbar-connect {
+    user-select: text;
+    -webkit-user-select: text;
+  }
+
+  .main-body.main-active {
+    opacity: 1 !important;
+    animation: none;
+  }
+
+  /* GSAP scrub leaves these at opacity 0 on mobile until scroll — force visible */
+  /* Section wrappers stay opaque; timelines / cards animate via GSAP on scroll */
+  .career-section,
+  .education-section,
+  .certifications-section {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: var(--accentColor);
+}
+
+main {
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.main-active {
+  opacity: 0;
+  animation: fadeIn 1s 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+.main-body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide site chrome while the portfolio loader is active */
+body.is-site-loading .main-body {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body.is-site-loading .landing-circle1,
+body.is-site-loading .landing-circle2 {
+  opacity: 0;
+  animation: none;
+}
+
+.container-main {
+  width: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.container1 {
+  width: var(--cWidth);
+  height: var(--vh);
+  margin: auto;
+  position: relative;
+}
+
+.split-line {
+  overflow: hidden;
+}
+
+.split-h2 {
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.techstack {
+  width: 100%;
+  position: relative;
+  height: var(--vh);
+  min-height: 100vh;
+  margin: 0 auto;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background: linear-gradient(
+    180deg,
+    var(--backgroundColor) 0%,
+    var(--surfaceMuted) 100%
+  );
+  background-color: var(--backgroundColor);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.techstack::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 50%, var(--glowAccent) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(124, 110, 245, 0.12) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.techstack > * {
+  position: relative;
+  z-index: 1;
+}
+
+.techstack h2 {
+  font-size: 80px;
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 150px;
+  left: 0;
+  font-weight: 400;
+  text-transform: uppercase;
+  z-index: 3;
+  margin: 0;
+  color: var(--textColor);
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    --cWidth: 94%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .techstack h2 {
+    font-size: 40px;
+  }
+}

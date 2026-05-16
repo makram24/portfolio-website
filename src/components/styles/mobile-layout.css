@@ -1,0 +1,165 @@
+/* Mobile-only unified horizontal gutters (desktop unchanged) */
+@media only screen and (max-width: 768px) {
+  :root {
+    --page-gutter: 20px;
+    --cWidth: calc(100% - var(--page-gutter) * 2);
+  }
+
+  .section-container {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: var(--page-gutter) !important;
+    padding-right: var(--page-gutter) !important;
+    box-sizing: border-box;
+  }
+
+  .about-section {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: var(--page-gutter) !important;
+    padding-right: var(--page-gutter) !important;
+    box-sizing: border-box;
+  }
+
+  .about-me {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  .landing-section,
+  .landing-container {
+    padding-left: var(--page-gutter) !important;
+    padding-right: var(--page-gutter) !important;
+    box-sizing: border-box;
+  }
+
+  .highlights-section {
+    padding-left: var(--page-gutter) !important;
+    padding-right: var(--page-gutter) !important;
+    box-sizing: border-box;
+  }
+
+  .highlights-grid {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .whatIDO.section-container {
+    padding-left: var(--page-gutter) !important;
+    padding-right: var(--page-gutter) !important;
+  }
+
+  .what-inner {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .engineering-section.section-container {
+    padding-left: var(--page-gutter) !important;
+    padding-right: var(--page-gutter) !important;
+  }
+
+  .engineering-info {
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .career-container,
+  .education-container,
+  .certifications-container {
+    width: 100% !important;
+    max-width: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .career-info,
+  .education-info,
+  .certifications-info {
+    width: 100%;
+  }
+
+  .career-timeline,
+  .education-timeline,
+  .certifications-timeline {
+    left: 0;
+    transform: none;
+  }
+
+  .career-info-in,
+  .career-info-box p,
+  .education-info-in,
+  .education-info-box p,
+  .certifications-info-in,
+  .certifications-info-box p {
+    width: 100% !important;
+    padding-left: 18px !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .career-section h2,
+  .education-section h2,
+  .certifications-section h2,
+  .work-section h2,
+  .engineering-section h2 {
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+  }
+
+  .education-info h3,
+  .certifications-info h3 {
+    font-size: 25px;
+    line-height: 1.25;
+  }
+
+  .work-section .work-container {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: var(--page-gutter) !important;
+    padding-right: var(--page-gutter) !important;
+    box-sizing: border-box;
+  }
+
+  .work-flex {
+    margin-left: 0 !important;
+    width: 100%;
+  }
+
+  .work-box {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .contact-section.section-container {
+    padding-left: var(--page-gutter) !important;
+    padding-right: var(--page-gutter) !important;
+  }
+
+  .contact-container {
+    width: 100% !important;
+    max-width: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    box-sizing: border-box;
+  }
+
+  .cta-section {
+    padding-left: var(--page-gutter) !important;
+    padding-right: var(--page-gutter) !important;
+    box-sizing: border-box;
+  }
+}

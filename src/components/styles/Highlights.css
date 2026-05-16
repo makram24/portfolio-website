@@ -1,0 +1,54 @@
+.highlights-section {
+  padding: 60px 0 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.highlights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.highlight-card {
+  background: var(--surfaceColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 8px 32px var(--shadowColor);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.highlight-card:hover {
+  border-color: var(--accentColor);
+  transform: translateY(-2px);
+}
+
+.highlight-value {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--accentColor);
+  letter-spacing: -0.03em;
+}
+
+.highlight-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--textMuted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media only screen and (min-width: 768px) {
+  .highlights-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+}
