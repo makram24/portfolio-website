@@ -16,7 +16,7 @@ const Certifications = () => {
     <div className="certifications-section section-container" id="certifications">
       <div className="certifications-container">
         <h2>
-          My certifications <span>&</span>
+          My certifications <span>and</span>
           <br /> credentials
         </h2>
         <div className="certifications-info">

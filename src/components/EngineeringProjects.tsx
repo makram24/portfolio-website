@@ -9,8 +9,8 @@ const EngineeringProjects = () => {
     >
       <div className="engineering-container">
         <h2>
-          Engineering <span>&</span>
-          <br /> projects
+          Engineering <span>and</span>
+          <br /> Projects
         </h2>
         <div className="engineering-info">
           {config.engineeringProjects.map((project, index) => (

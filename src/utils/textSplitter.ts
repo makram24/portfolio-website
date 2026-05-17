@@ -7,11 +7,13 @@ export class TextSplitter {
   selector: string | Function;
   private originalHTML: Map<Element, string> = new Map();
 
-  constructor(target: string | Element | NodeListOf<Element> | Element[], vars?: { type?: string; linesClass?: string }) {
+  constructor(
+    target: string | Element | NodeListOf<Element> | Element[],
+    vars?: { type?: string; linesClass?: string }
+  ) {
     const type = vars?.type || "chars,words,lines";
     const linesClass = vars?.linesClass || "split-line";
 
-    // Get elements
     let elements: Element[] = [];
     if (typeof target === "string") {
       elements = Array.from(document.querySelectorAll(target));
@@ -27,11 +29,9 @@ export class TextSplitter {
     this.elements = elements;
 
     elements.forEach((element) => {
-      // Store original HTML for revert
       this.originalHTML.set(element, element.innerHTML);
 
       if (type.includes("chars") && type.includes("words")) {
-        // Split into words first, then chars
         this.splitWords(element);
         this.splitCharsFromWords(element);
       } else if (type.includes("chars")) {
@@ -49,7 +49,7 @@ export class TextSplitter {
   private splitChars(element: Element) {
     const text = element.textContent || "";
     const chars = text.split("");
-    
+
     element.innerHTML = chars
       .map((char) => {
         if (char === " ") {
@@ -72,7 +72,7 @@ export class TextSplitter {
     element.innerHTML = words
       .map((word) => {
         if (word.trim().length === 0) {
-          return word; // Preserve whitespace
+          return word;
         }
         return `<span class="split-word">${word}</span>`;
       })
@@ -93,55 +93,54 @@ export class TextSplitter {
     });
   }
 
+  /** Synchronous line wrap after a layout flush (avoids GSAP binding before DOM settles). */
   private splitLines(element: Element, linesClass: string) {
-    // Use requestAnimationFrame to ensure layout is complete
-    requestAnimationFrame(() => {
-      const items = element.querySelectorAll(".split-word, .split-char");
-      if (items.length === 0) return;
+    const htmlEl = element as HTMLElement;
+    void htmlEl.offsetHeight;
 
-      let currentLine: Element[] = [];
-      let lines: Element[][] = [];
-      let currentTop = 0;
+    const items = element.querySelectorAll(".split-word, .split-char");
+    if (items.length === 0) return;
 
-      items.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        if (currentTop === 0) {
-          currentTop = rect.top;
-        }
+    let currentLine: Element[] = [];
+    const lines: Element[][] = [];
+    let currentTop = 0;
 
-        if (Math.abs(rect.top - currentTop) > 5) {
-          // New line
-          if (currentLine.length > 0) {
-            lines.push([...currentLine]);
-          }
-          currentLine = [item];
-          currentTop = rect.top;
-        } else {
-          currentLine.push(item);
-        }
-      });
-
-      if (currentLine.length > 0) {
-        lines.push(currentLine);
+    items.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      if (currentTop === 0) {
+        currentTop = rect.top;
       }
 
-      // Wrap lines
-      lines.forEach((line) => {
-        if (line.length === 0) return;
-        const lineWrapper = document.createElement("span");
-        lineWrapper.className = linesClass;
-        lineWrapper.style.display = "block";
-        const firstItem = line[0];
-        firstItem.parentNode?.insertBefore(lineWrapper, firstItem);
-        line.forEach((item) => {
-          if (item.parentNode === lineWrapper.parentNode) {
-            lineWrapper.appendChild(item);
-          }
-        });
-      });
-
-      this.lines.push(...Array.from(element.querySelectorAll(`.${linesClass}`)));
+      if (Math.abs(rect.top - currentTop) > 5) {
+        if (currentLine.length > 0) {
+          lines.push([...currentLine]);
+        }
+        currentLine = [item];
+        currentTop = rect.top;
+      } else {
+        currentLine.push(item);
+      }
     });
+
+    if (currentLine.length > 0) {
+      lines.push(currentLine);
+    }
+
+    lines.forEach((line) => {
+      if (line.length === 0) return;
+      const lineWrapper = document.createElement("span");
+      lineWrapper.className = linesClass;
+      lineWrapper.style.display = "block";
+      const firstItem = line[0];
+      firstItem.parentNode?.insertBefore(lineWrapper, firstItem);
+      line.forEach((item) => {
+        if (item.parentNode === lineWrapper.parentNode) {
+          lineWrapper.appendChild(item);
+        }
+      });
+    });
+
+    this.lines.push(...Array.from(element.querySelectorAll(`.${linesClass}`)));
   }
 
   revert() {
@@ -157,4 +156,3 @@ export class TextSplitter {
     this.originalHTML.clear();
   }
 }
-

@@ -15,6 +15,12 @@
   width: 100%;
   max-width: calc(100% - 15px);
 }
+
+/* Hide until split + GSAP initial state (prevents flash before JS runs) */
+.about-me:not(.split-ready) .title,
+.about-me:not(.split-ready) .para {
+  visibility: hidden;
+}
 .about-me h3 {
   font-size: 18px;
   text-transform: uppercase;

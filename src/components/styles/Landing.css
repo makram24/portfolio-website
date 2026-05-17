@@ -17,7 +17,7 @@
   .landing-section,
   .landing-container {
     height: auto !important;
-    min-height: 100vh;
+    min-height: 70vh;
     max-width: 100vw;
     box-sizing: border-box;
     display: flex;
