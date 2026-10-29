@@ -11,9 +11,14 @@ gsap.registerPlugin(ScrollTrigger);
 const Work = () => {
   useEffect(() => {
     // Disable pinning on mobile to allow scrolling
-    if (window.innerWidth <= 768) return;
+    if (
+      window.innerWidth <= 768 ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
 
-    let translateX: number = 0;
+    let translateX = 0;
 
     function setTranslateX() {
       const box = document.getElementsByClassName("work-box");
@@ -23,14 +28,14 @@ const Work = () => {
         .getBoundingClientRect().left;
       const rect = box[0].getBoundingClientRect();
       const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-      let padding: number =
+      const padding: number =
         parseInt(window.getComputedStyle(box[0]).padding) / 2;
       translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
     }
 
     setTranslateX();
 
-    let timeline = gsap.timeline({
+    const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".work-section",
         start: "top top",
@@ -49,11 +54,13 @@ const Work = () => {
       ease: "none",
     });
 
-    // Refresh ScrollTrigger after layout settles
+    // Refresh after layout settles so pin spacing clears prior sections
+    const refreshId = window.setTimeout(() => ScrollTrigger.refresh(), 100);
     ScrollTrigger.refresh();
 
     // Clean up
     return () => {
+      window.clearTimeout(refreshId);
       timeline.kill();
       ScrollTrigger.getById("work")?.kill();
     };
@@ -65,11 +72,11 @@ const Work = () => {
           My <span>Work</span>
         </h2>
         <div className="work-flex">
-          {config.projects.slice(0, 5).map((project, index) => (
+          {config.homepageProjects.map((project, index) => (
             <div className="work-box" key={project.id}>
               <div className="work-info">
                 <div className="work-title">
-                  <h3>0{index + 1}</h3>
+                  <h3>{String(index + 1).padStart(2, "0")}</h3>
 
                   <div>
                     <h4>{project.title}</h4>
@@ -89,10 +96,10 @@ const Work = () => {
           {/* See All Works Button */}
           <div className="work-box work-box-cta">
             <div className="see-all-works">
-              <h3>Want to see more?</h3>
-              <p>Explore all of my projects and creations</p>
+              <h3>Curious for more?</h3>
+              <p>Client sites, products, and side projects — all in one place</p>
               <Link to="/myworks" className="see-all-btn" data-cursor="disable">
-                See All Works →
+                Browse everything →
               </Link>
             </div>
           </div>

@@ -18,6 +18,10 @@ const socialLinks = [
 
 const Contact = () => {
   useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     const contactTimeline = gsap.timeline({
       scrollTrigger: {
         trigger: ".contact-section",
@@ -62,7 +66,9 @@ const Contact = () => {
   return (
     <div className="contact-section section-container" id="contact">
       <div className="contact-container">
-        <h3>{config.developer.fullName}</h3>
+        <p className="contact-hello">Thanks for stopping by</p>
+        <h3>Let&apos;s talk</h3>
+        <p className="contact-hint">{config.openTo.responseTime}</p>
         <div className="contact-flex">
           <div className="contact-box">
             <h4>Email</h4>
@@ -104,7 +110,7 @@ const Contact = () => {
           )}
           <div className="contact-box">
             <h2>
-              Designed and Developed <br /> by <span>{config.developer.fullName}</span>
+              Made with care <br /> by <span>{config.developer.fullName}</span>
             </h2>
             <h5>
               <MdCopyright /> {new Date().getFullYear()}

@@ -216,8 +216,13 @@ export const INTERACTABLES: Interactable[] = [
     height: TILE_SIZE,
     prompt: "Skills",
     title: "Reading nook",
-    body: config.skills.security.details,
-    tags: config.skills.security.tools.slice(0, 5),
+    body: config.skills.agents.details,
+    tags: config.skills.agents.tools.slice(0, 5),
+    action: {
+      label: "Agensi storefront",
+      href: config.agentSkillsStorefront,
+      external: true,
+    },
   },
   {
     id: "coffee",
@@ -227,8 +232,8 @@ export const INTERACTABLES: Interactable[] = [
     height: TILE_SIZE,
     prompt: "Coffee",
     title: "Coffee station",
-    body: "Fuel for late-night deploys and MSc deadlines. Usually a flat white — sometimes just more React rerenders.",
-    tags: ["☕", "Budapest", "Night owl"],
+    body: "Fuel for late-night builds and MSc deadlines. Usually a flat white — sometimes just one more deploy.",
+    tags: ["Flat white", "Budapest", "Night owl"],
   },
   {
     id: "whiteboard",

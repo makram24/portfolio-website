@@ -11,7 +11,7 @@ import {
   handleTouchMove,
 } from "./utils/mouseUtils";
 import setAnimations from "./utils/animationUtils";
-import { setProgress } from "../Loading";
+import { setProgress } from "../../utils/loadingProgress";
 import {
   killCharScrollSetup,
   setCharTimeline,
@@ -95,17 +95,18 @@ const Scene = () => {
         animations.hover(gltf, hoverDivRef.current);
       }
       mixer = animations.mixer;
-      character = gltf.scene;
+      const loadedCharacter = gltf.scene;
+      character = loadedCharacter;
 
-      if (character.parent) {
-        character.parent.remove(character);
+      if (loadedCharacter.parent) {
+        loadedCharacter.parent.remove(loadedCharacter);
       }
-      scene.add(character);
+      scene.add(loadedCharacter);
 
-      headBone = character.getObjectByName("spine006") || null;
-      screenLight = character.getObjectByName("screenlight") || null;
+      headBone = loadedCharacter.getObjectByName("spine006") || null;
+      screenLight = loadedCharacter.getObjectByName("screenlight") || null;
 
-      setCharTimeline(character, camera);
+      setCharTimeline(loadedCharacter, camera);
       setAllTimeline();
 
       progress.loaded().then(() => {

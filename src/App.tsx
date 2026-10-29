@@ -1,6 +1,10 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NotFound from "./components/NotFound";
+import RouteLoading from "./components/RouteLoading";
+import RouteSeo from "./components/RouteSeo";
 import "./App.css";
+import "./components/styles/RouteStates.css";
 
 const enableVercelInsights =
   import.meta.env.VITE_ENABLE_VERCEL_INSIGHTS === "true";
@@ -29,19 +33,14 @@ import { routerBasename } from "./utils/publicUrl";
 const App = () => {
   return (
     <BrowserRouter basename={routerBasename()}>
+      <RouteSeo />
       <Routes>
         <Route
           path="/"
           element={
             <LoadingProvider>
               <Suspense
-                fallback={
-                  <div
-                    className="route-suspense-fallback"
-                    aria-busy="true"
-                    aria-label="Loading"
-                  />
-                }
+                fallback={<RouteLoading />}
               >
                 <MainContainer>
                   <Suspense>
@@ -55,7 +54,7 @@ const App = () => {
         <Route
           path="/myworks"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<RouteLoading />}>
               <MyWorks />
             </Suspense>
           }
@@ -63,11 +62,12 @@ const App = () => {
         <Route
           path="/play"
           element={
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<RouteLoading />}>
               <Play />
             </Suspense>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       {enableVercelInsights && VercelAnalytics && VercelSpeedInsights && (
         <Suspense fallback={null}>

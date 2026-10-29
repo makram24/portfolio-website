@@ -1,6 +1,5 @@
 import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
-import { chatApiDevPlugin } from "./vite.chatApiPlugin";
 
 function normalizeBase(basePath: string | undefined): string {
   if (!basePath || basePath === "/") return "/";
@@ -18,16 +17,12 @@ export default defineConfig(({ mode }) => {
 
   return {
     base,
-    plugins: [
-      react(),
-      ...(mode === "development" ? [chatApiDevPlugin()] : []),
-    ],
+    plugins: [react()],
     build: {
       rollupOptions: {
         output: {
           manualChunks: {
             three: ["three", "three-stdlib"],
-            "react-three": ["@react-three/fiber", "@react-three/drei"],
             gsap: ["gsap"],
             vendor: ["react", "react-dom", "react-router-dom"],
           },

@@ -59,10 +59,10 @@ const SocialIcons = () => {
   }, []);
 
   const iconLinks = [
-    { href: config.contact.github, icon: <FaGithub /> },
-    { href: config.contact.linkedin, icon: <FaLinkedinIn /> },
-    { href: config.contact.twitter, icon: <FaXTwitter /> },
-    { href: config.contact.instagram, icon: <FaInstagram /> },
+    { href: config.contact.github, icon: <FaGithub />, label: "GitHub profile" },
+    { href: config.contact.linkedin, icon: <FaLinkedinIn />, label: "LinkedIn profile" },
+    { href: config.contact.twitter, icon: <FaXTwitter />, label: "X profile" },
+    { href: config.contact.instagram, icon: <FaInstagram />, label: "Instagram profile" },
   ].filter((item) => item.href);
 
   return (
@@ -71,14 +71,25 @@ const SocialIcons = () => {
         <div className="social-icons" data-cursor="icons" id="social">
           {iconLinks.map((item, index) => (
             <span key={index}>
-              <a href={item.href} target="_blank" rel="noopener noreferrer">
+              <a
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={item.label}
+              >
                 {item.icon}
               </a>
             </span>
           ))}
         </div>
       )}
-      <a className="resume-button" href={publicUrl("/CV-Makram-Al-Moghrabi.pdf")} target="_blank" rel="noopener noreferrer">
+      <a
+        className="resume-button"
+        href={publicUrl("/CV-Makram-Al-Moghrabi.pdf")}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open resume PDF"
+      >
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />

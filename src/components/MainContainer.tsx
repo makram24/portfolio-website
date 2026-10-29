@@ -13,6 +13,7 @@ import Highlights from "./Highlights";
 import Education from "./Education";
 import Certifications from "./Certifications";
 import EngineeringProjects from "./EngineeringProjects";
+import AgentSkills from "./AgentSkills";
 import setSplitText from "./utils/splitText";
 
 const MainContainer = ({ children }: PropsWithChildren) => {
@@ -61,6 +62,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
         <About />
         <Highlights />
         <WhatIDo />
+        <AgentSkills />
         <Career />
         <EngineeringProjects />
         <Work />

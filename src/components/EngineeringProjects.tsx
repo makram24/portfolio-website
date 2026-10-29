@@ -9,8 +9,8 @@ const EngineeringProjects = () => {
     >
       <div className="engineering-container">
         <h2>
-          Engineering <span>and</span>
-          <br /> Projects
+          Things I&apos;ve <span>built</span>
+          <br /> &amp; shipped
         </h2>
         <div className="engineering-info">
           {config.engineeringProjects.map((project, index) => (

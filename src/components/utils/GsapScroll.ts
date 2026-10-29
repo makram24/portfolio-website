@@ -62,27 +62,31 @@ export function setCharTimeline(
       invalidateOnRefresh: true,
     },
   });
-  let screenLight: any, monitor: any;
-  character?.children.forEach((object: any) => {
+  let screenLight: THREE.Mesh | undefined;
+  let monitor: THREE.Mesh | undefined;
+  character?.children.forEach((object) => {
     if (object.name === "Plane004") {
-      object.children.forEach((child: any) => {
-        child.material.transparent = true;
-        child.material.opacity = 0;
-        if (child.material.name === "Material.027") {
+      object.children.forEach((child) => {
+        if (!(child instanceof THREE.Mesh)) return;
+        const material = child.material as THREE.MeshStandardMaterial;
+        material.transparent = true;
+        material.opacity = 0;
+        if (material.name === "Material.027") {
           monitor = child;
-          child.material.color.set("#FFFFFF");
+          material.color.set("#FFFFFF");
         }
       });
     }
-    if (object.name === "screenlight") {
-      object.material.transparent = true;
-      object.material.opacity = 0;
-      object.material.emissive.set("#e8d4b8");
+    if (object.name === "screenlight" && object instanceof THREE.Mesh) {
+      const material = object.material as THREE.MeshStandardMaterial;
+      material.transparent = true;
+      material.opacity = 0;
+      material.emissive.set("#e8d4b8");
       gsap.timeline({
         id: "char-screen-flicker",
         repeat: -1,
         repeatRefresh: true,
-      }).to(object.material, {
+      }).to(material, {
         emissiveIntensity: () => intensity * 8,
         duration: () => Math.random() * 0.6,
         delay: () => Math.random() * 0.1,
@@ -90,7 +94,7 @@ export function setCharTimeline(
       screenLight = object;
     }
   });
-  let neckBone = character?.getObjectByName("spine005");
+  const neckBone = character?.getObjectByName("spine005");
   if (window.innerWidth > 1024) {
     if (character) {
       const camHome = {
@@ -156,19 +160,19 @@ export function setCharTimeline(
           0
         )
         .fromTo(
-          monitor.material,
+          monitor!.material,
           { opacity: 0 },
           { opacity: 1, duration: 0.8, delay: 3.2 },
           0
         )
         .fromTo(
-          screenLight.material,
+          screenLight!.material,
           { opacity: 0 },
           { opacity: 1, duration: 0.8, delay: 4.5 },
           0
         )
         .fromTo(
-          monitor.position,
+          monitor!.position,
           { y: -10, z: 2 },
           { y: 0, z: 0, delay: 1.5, duration: 3 },
           0

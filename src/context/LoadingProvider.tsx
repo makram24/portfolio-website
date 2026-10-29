@@ -87,7 +87,6 @@ export const LoadingProvider = ({ children }: PropsWithChildren) => {
     </LoadingContext.Provider>
   );
 };
-
 export const useLoading = () => {
   const context = useContext(LoadingContext);
   if (!context) {
@@ -95,3 +94,4 @@ export const useLoading = () => {
   }
   return context;
 };
+

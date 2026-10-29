@@ -14,8 +14,8 @@ const Education = () => {
     <div className="education-section section-container" id="education">
       <div className="education-container">
         <h2>
-          My education <span>and</span>
-          <br /> background
+          How I got <span>here</span>
+          <br /> &amp; what I studied
         </h2>
         <div className="education-info">
           <div className="education-timeline">

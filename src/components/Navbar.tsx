@@ -13,7 +13,10 @@ export let lenis: Lenis | null = null;
 const Navbar = () => {
   useEffect(() => {
     // Lenis is desktop-only (>1024); mobile/tablet use native scroll
-    if (window.innerWidth <= 1024) {
+    if (
+      window.innerWidth <= 1024 ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
       return;
     }
 
@@ -32,47 +35,51 @@ const Navbar = () => {
     // Start paused
     lenis.stop();
 
-    // Handle smooth scroll animation frame
+    let rafId = 0;
     function raf(time: number) {
       lenis?.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
-    // Handle navigation links
-    let links = document.querySelectorAll(".header ul a");
-    links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          if (section && lenis) {
-            const target = document.querySelector(section) as HTMLElement;
-            if (target) {
-              lenis.scrollTo(target, {
-                offset: 0,
-                duration: 1.5,
-              });
-            }
-          }
+    const links = document.querySelectorAll(".header ul a");
+    const onNavClick = (e: Event) => {
+      if (window.innerWidth <= 1024) return;
+      e.preventDefault();
+      const elem = e.currentTarget as HTMLAnchorElement;
+      const section = elem.getAttribute("data-href");
+      if (section && lenis) {
+        const target = document.querySelector(section) as HTMLElement;
+        if (target) {
+          lenis.scrollTo(target, {
+            offset: 0,
+            duration: 1.5,
+          });
         }
-      });
+      }
+    };
+    links.forEach((elem) => {
+      elem.addEventListener("click", onNavClick);
     });
 
-    // Handle resize
-    window.addEventListener("resize", () => {
+    const onResize = () => {
       lenis?.resize();
-    });
+    };
+    window.addEventListener("resize", onResize);
 
     return () => {
+      cancelAnimationFrame(rafId);
+      links.forEach((elem) => {
+        elem.removeEventListener("click", onNavClick);
+      });
+      window.removeEventListener("resize", onResize);
       lenis?.destroy();
+      lenis = null;
     };
   }, []);
   return (
     <>
-      <div className="header">
+      <nav className="header" aria-label="Primary">
         <a
           href={publicUrl("")}
           className="navbar-brand"
@@ -110,7 +117,7 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </nav>
 
       <div className="landing-circle1"></div>
       <div className="landing-circle2"></div>

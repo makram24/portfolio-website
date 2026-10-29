@@ -4,7 +4,7 @@ export class TextSplitter {
   words: Element[] = [];
   lines: Element[] = [];
   elements: Element[] = [];
-  selector: string | Function;
+  selector: string | ((...args: never[]) => unknown);
   private originalHTML: Map<Element, string> = new Map();
 
   constructor(
@@ -72,7 +72,7 @@ export class TextSplitter {
     element.innerHTML = words
       .map((word) => {
         if (word.trim().length === 0) {
-          return word;
+          return `<span class="split-ws">${word}</span>`;
         }
         return `<span class="split-word">${word}</span>`;
       })
@@ -98,7 +98,9 @@ export class TextSplitter {
     const htmlEl = element as HTMLElement;
     void htmlEl.offsetHeight;
 
-    const items = element.querySelectorAll(".split-word, .split-char");
+    const items = Array.from(
+      element.querySelectorAll(".split-word, .split-char, .split-ws")
+    );
     if (items.length === 0) return;
 
     let currentLine: Element[] = [];
@@ -107,16 +109,19 @@ export class TextSplitter {
 
     items.forEach((item) => {
       const rect = item.getBoundingClientRect();
+      const itemTop = rect.width === 0 && rect.height === 0
+        ? currentTop
+        : rect.top;
       if (currentTop === 0) {
-        currentTop = rect.top;
+        currentTop = itemTop;
       }
 
-      if (Math.abs(rect.top - currentTop) > 5) {
+      if (Math.abs(itemTop - currentTop) > 5) {
         if (currentLine.length > 0) {
           lines.push([...currentLine]);
         }
         currentLine = [item];
-        currentTop = rect.top;
+        currentTop = itemTop;
       } else {
         currentLine.push(item);
       }
@@ -134,9 +139,7 @@ export class TextSplitter {
       const firstItem = line[0];
       firstItem.parentNode?.insertBefore(lineWrapper, firstItem);
       line.forEach((item) => {
-        if (item.parentNode === lineWrapper.parentNode) {
-          lineWrapper.appendChild(item);
-        }
+        lineWrapper.appendChild(item);
       });
     });
 

@@ -20,5 +20,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.ts", "vite.chatApiPlugin.ts", "api/chat.d.ts", "api/chat.js"]
+  "include": ["vite.config.ts"]
 }

@@ -40,7 +40,7 @@
 
 .myworks-header p {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--textMuted);
 }
 
 .myworks-grid {
@@ -52,8 +52,11 @@
 }
 
 .myworks-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  background: var(--surfaceColor);
+  border: 1px solid var(--borderColor);
   border-radius: 15px;
   overflow: hidden;
   transition: all 0.3s ease;
@@ -61,6 +64,7 @@
 }
 
 .myworks-card:hover {
+  color: var(--textColor);
   transform: translateY(-10px);
   border-color: var(--accentColor);
   box-shadow: 0 20px 40px var(--glowAccentSubtle);
@@ -115,14 +119,14 @@
 
 .myworks-card-description {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--textMuted);
   line-height: 1.6;
   margin-bottom: 15px;
 }
 
 .myworks-card-tech {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--textMuted);
   line-height: 1.5;
 }
 

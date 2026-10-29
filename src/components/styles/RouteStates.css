@@ -1,0 +1,6 @@
+/* Shared states for lazy routes and missing pages. Layout matches existing pages. */
+.route-suspense-fallback {
+  min-height: 100vh;
+  min-height: 100svh;
+  background-color: var(--backgroundColor);
+}

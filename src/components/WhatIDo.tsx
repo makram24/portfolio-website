@@ -1,7 +1,7 @@
 import "./styles/WhatIDo.css";
 import { config } from "../config";
 
-const skillKeys = ["develop", "iot", "security"] as const;
+const skillKeys = ["develop", "agents", "iot", "security"] as const;
 
 const WhatIDo = () => {
   return (
@@ -12,8 +12,8 @@ const WhatIDo = () => {
             What <span>I do</span>
           </h2>
           <p className="what-lead">
-            Full-stack engineering, IoT pipelines, and secure infrastructure — the
-            areas I focus on day to day.
+            A mix of products people use every day, helpful AI agent skills, and
+            systems that stay solid under the hood.
           </p>
         </header>
 

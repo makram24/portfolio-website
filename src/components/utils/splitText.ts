@@ -36,6 +36,12 @@ export default function setSplitText() {
   ScrollTrigger.config({ ignoreMobileResize: true });
   const w = window.innerWidth;
 
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    revertAboutSplits();
+    document.querySelector(".about-me")?.classList.add("split-ready");
+    return;
+  }
+
   if (w < 900 && w > 768) {
     revertAboutSplits();
     return;

@@ -1,0 +1,194 @@
+.agent-skills-section {
+  position: relative;
+  z-index: 2;
+  isolation: isolate;
+  padding: 140px 0 120px;
+  margin: 80px auto 60px;
+  background-color: var(--backgroundColor);
+  overflow: hidden;
+  scroll-margin-top: 96px;
+}
+
+.agent-skills-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.agent-skills-header {
+  text-align: center;
+  margin-bottom: 48px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.agent-skills-header h2 {
+  margin: 0 0 16px;
+  font-size: clamp(2.5rem, 6vw, 4.375rem);
+  line-height: 1;
+  font-weight: 400;
+  background: linear-gradient(0deg, var(--accentColor), var(--textColor));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.agent-skills-header h2 > span {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-style: italic;
+  -webkit-text-fill-color: var(--accentColor);
+  background: none;
+}
+
+.agent-skills-header p {
+  margin: 0 0 20px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--textMuted);
+}
+
+.agent-skills-storefront {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accentColor);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.agent-skills-storefront:hover {
+  border-bottom-color: var(--accentColor);
+}
+
+.agent-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.agent-skill-card {
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--borderColor);
+  transition: background 0.2s ease;
+}
+
+.agent-skill-card:last-child {
+  border-bottom: none;
+}
+
+.agent-skill-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.agent-skill-status {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: var(--font-display);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.agent-skill-status--live {
+  background: var(--accentMuted);
+  color: var(--accentColor);
+}
+
+.agent-skill-status--pending {
+  background: transparent;
+  border: 1px solid var(--borderColor);
+  color: var(--textMuted);
+}
+
+.agent-skill-price {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--textMuted);
+}
+
+.agent-skill-card h3 {
+  margin: 0 0 8px;
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.agent-skill-card p {
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--textMuted);
+}
+
+.agent-skill-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.agent-skill-links a {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accentColor);
+  text-decoration: none;
+}
+
+.agent-skill-links a:hover {
+  text-decoration: underline;
+}
+
+.agent-skills-toggle-wrap {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.agent-skills-toggle {
+  appearance: none;
+  background: transparent;
+  border: 1px solid var(--accentColor);
+  color: var(--accentColor);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.agent-skills-toggle:hover {
+  background: var(--accentColor);
+  color: var(--bgColor, #0a0a0a);
+}
+
+@media only screen and (min-width: 768px) {
+  .agent-skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 32px;
+  }
+
+  .agent-skill-card {
+    border-bottom: 1px solid var(--borderColor);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .agent-skills-section {
+    padding: 96px 0 80px;
+    margin: 48px auto 40px;
+  }
+
+  .agent-skills-header {
+    margin-bottom: 32px;
+  }
+}

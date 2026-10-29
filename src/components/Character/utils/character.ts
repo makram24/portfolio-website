@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { DRACOLoader, GLTF, GLTFLoader } from "three-stdlib";
-import { decryptFile } from "./decrypt";
 import { publicUrl } from "../../../utils/publicUrl";
 
 async function prepareCharacter(
@@ -58,22 +57,6 @@ const setCharacter = (
 
   const loadCharacter = async (): Promise<GLTF | null> => {
     const glbUrl = publicUrl("/models/character.glb");
-    const encUrl = publicUrl("/models/character.enc");
-
-    try {
-      const encryptedData = await decryptFile(encUrl, "Character3D#@");
-      const blobUrl = URL.createObjectURL(new Blob([encryptedData]));
-      try {
-        return await loadFromUrl(blobUrl);
-      } finally {
-        URL.revokeObjectURL(blobUrl);
-      }
-    } catch (error) {
-      console.warn(
-        "[character] Encrypted model unavailable, loading GLB:",
-        error
-      );
-    }
 
     try {
       return await loadFromUrl(glbUrl);
