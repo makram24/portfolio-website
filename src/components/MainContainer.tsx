@@ -27,6 +27,11 @@ const MainContainer = ({ children }: PropsWithChildren) => {
       setSplitText();
       setIsDesktopView(window.innerWidth > 1024);
       setIsMobile(window.innerWidth <= 768);
+      if (window.innerWidth <= 768) {
+        import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+          ScrollTrigger.getById("work")?.kill(true);
+        });
+      }
     };
     resizeHandler();
     window.addEventListener("resize", resizeHandler);

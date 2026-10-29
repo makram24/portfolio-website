@@ -147,13 +147,32 @@ body {
     animation: none;
   }
 
-  /* GSAP scrub leaves these at opacity 0 on mobile until scroll — force visible */
+  /* GSAP scrub leaves these at opacity 0 on mobile until scroll  force visible */
   /* Section wrappers stay opaque; timelines / cards animate via GSAP on scroll */
   .career-section,
   .education-section,
   .certifications-section {
     opacity: 1 !important;
     visibility: visible !important;
+  }
+
+  .career-info-box,
+  .education-info-box,
+  .certifications-info-box,
+  .highlight-card,
+  .what-card,
+  .engineering-info-box,
+  .work-box {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+
+  .career-timeline,
+  .education-timeline,
+  .certifications-timeline {
+    opacity: 1 !important;
+    max-height: 100% !important;
   }
 }
 

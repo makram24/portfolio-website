@@ -1,0 +1,405 @@
+{
+  "adventures": {
+    "folder": "adventures",
+    "slug": "adventures",
+    "cover": "/images/portfolio/adventures/0.jpg",
+    "gallery": [
+      "/images/portfolio/adventures/0.jpg",
+      "/images/portfolio/adventures/1.jpg"
+    ]
+  },
+  "aisha": {
+    "folder": "aisha",
+    "slug": "aisha",
+    "cover": "/images/portfolio/aisha/0.jpg",
+    "gallery": [
+      "/images/portfolio/aisha/0.jpg",
+      "/images/portfolio/aisha/1.jpg",
+      "/images/portfolio/aisha/2.jpg",
+      "/images/portfolio/aisha/3.jpg",
+      "/images/portfolio/aisha/4.jpg"
+    ]
+  },
+  "art-deco": {
+    "folder": "art-deco",
+    "slug": "art-deco",
+    "cover": "/images/portfolio/art-deco/0.jpg",
+    "gallery": [
+      "/images/portfolio/art-deco/0.jpg",
+      "/images/portfolio/art-deco/1.jpg"
+    ]
+  },
+  "automotive": {
+    "folder": "automotive",
+    "slug": "automotive",
+    "cover": "/images/portfolio/automotive/0.jpg",
+    "gallery": [
+      "/images/portfolio/automotive/0.jpg",
+      "/images/portfolio/automotive/1.jpg",
+      "/images/portfolio/automotive/2.jpg",
+      "/images/portfolio/automotive/3.jpg"
+    ]
+  },
+  "back-combined": {
+    "folder": "back-combined",
+    "slug": "back-combined",
+    "cover": "/images/portfolio/back-combined/0.jpg",
+    "gallery": [
+      "/images/portfolio/back-combined/0.jpg",
+      "/images/portfolio/back-combined/1.jpg"
+    ]
+  },
+  "bcc": {
+    "folder": "bcc",
+    "slug": "bcc",
+    "cover": "/images/portfolio/bcc/0.jpg",
+    "gallery": [
+      "/images/portfolio/bcc/0.jpg",
+      "/images/portfolio/bcc/1.jpg",
+      "/images/portfolio/bcc/2.jpg"
+    ]
+  },
+  "bcc1": {
+    "folder": "bcc1",
+    "slug": "bcc1",
+    "cover": "/images/portfolio/bcc1/0.jpg",
+    "gallery": [
+      "/images/portfolio/bcc1/0.jpg",
+      "/images/portfolio/bcc1/1.jpg",
+      "/images/portfolio/bcc1/2.jpg",
+      "/images/portfolio/bcc1/3.jpg"
+    ]
+  },
+  "boltr": {
+    "folder": "boltr",
+    "slug": "boltr",
+    "cover": "/images/portfolio/boltr/0.jpg",
+    "gallery": [
+      "/images/portfolio/boltr/0.jpg"
+    ]
+  },
+  "brainy": {
+    "folder": "brainy",
+    "slug": "brainy",
+    "cover": "/images/portfolio/brainy/0.jpg",
+    "gallery": [
+      "/images/portfolio/brainy/0.jpg"
+    ]
+  },
+  "caramel": {
+    "folder": "caramel",
+    "slug": "caramel",
+    "cover": "/images/portfolio/caramel/0.jpg",
+    "gallery": [
+      "/images/portfolio/caramel/0.jpg",
+      "/images/portfolio/caramel/1.jpg"
+    ]
+  },
+  "carrot-media": {
+    "folder": "carrot-media",
+    "slug": "carrot-media",
+    "cover": "/images/portfolio/carrot-media/0.jpg",
+    "gallery": [
+      "/images/portfolio/carrot-media/0.jpg",
+      "/images/portfolio/carrot-media/1.jpg",
+      "/images/portfolio/carrot-media/2.jpg",
+      "/images/portfolio/carrot-media/3.jpg",
+      "/images/portfolio/carrot-media/4.jpg",
+      "/images/portfolio/carrot-media/5.jpg",
+      "/images/portfolio/carrot-media/6.jpg",
+      "/images/portfolio/carrot-media/7.jpg",
+      "/images/portfolio/carrot-media/8.jpg",
+      "/images/portfolio/carrot-media/9.jpg",
+      "/images/portfolio/carrot-media/10.jpg",
+      "/images/portfolio/carrot-media/11.jpg",
+      "/images/portfolio/carrot-media/12.jpg",
+      "/images/portfolio/carrot-media/13.jpg"
+    ]
+  },
+  "dar": {
+    "folder": "dar",
+    "slug": "dar",
+    "cover": "/images/portfolio/dar/0.jpg",
+    "gallery": [
+      "/images/portfolio/dar/0.jpg",
+      "/images/portfolio/dar/1.jpg",
+      "/images/portfolio/dar/2.jpg",
+      "/images/portfolio/dar/3.jpg"
+    ]
+  },
+  "decoro": {
+    "folder": "decoro",
+    "slug": "decoro",
+    "cover": "/images/portfolio/decoro/0.jpg",
+    "gallery": [
+      "/images/portfolio/decoro/0.jpg",
+      "/images/portfolio/decoro/1.jpg"
+    ]
+  },
+  "emm-ali": {
+    "folder": "emm-ali",
+    "slug": "emm-ali",
+    "cover": "/images/portfolio/emm-ali/0.jpg",
+    "gallery": [
+      "/images/portfolio/emm-ali/0.jpg",
+      "/images/portfolio/emm-ali/1.jpg",
+      "/images/portfolio/emm-ali/2.jpg",
+      "/images/portfolio/emm-ali/3.jpg"
+    ]
+  },
+  "ewg": {
+    "folder": "ewg",
+    "slug": "ewg",
+    "cover": "/images/portfolio/ewg/0.jpg",
+    "gallery": [
+      "/images/portfolio/ewg/0.jpg",
+      "/images/portfolio/ewg/1.jpg",
+      "/images/portfolio/ewg/2.jpg",
+      "/images/portfolio/ewg/3.jpg",
+      "/images/portfolio/ewg/4.jpg",
+      "/images/portfolio/ewg/5.jpg"
+    ]
+  },
+  "germaid": {
+    "folder": "germaid",
+    "slug": "germaid",
+    "cover": "/images/portfolio/germaid/0.jpg",
+    "gallery": [
+      "/images/portfolio/germaid/0.jpg",
+      "/images/portfolio/germaid/1.jpg"
+    ]
+  },
+  "golden": {
+    "folder": "golden",
+    "slug": "golden",
+    "cover": "/images/portfolio/golden/0.jpg",
+    "gallery": [
+      "/images/portfolio/golden/0.jpg",
+      "/images/portfolio/golden/1.jpg",
+      "/images/portfolio/golden/2.jpg"
+    ]
+  },
+  "home-made-by-kathy": {
+    "folder": "home-made-by-kathy",
+    "slug": "home-made-by-kathy",
+    "cover": "/images/portfolio/home-made-by-kathy/0.jpg",
+    "gallery": [
+      "/images/portfolio/home-made-by-kathy/0.jpg",
+      "/images/portfolio/home-made-by-kathy/1.jpg",
+      "/images/portfolio/home-made-by-kathy/2.jpg",
+      "/images/portfolio/home-made-by-kathy/3.jpg",
+      "/images/portfolio/home-made-by-kathy/4.jpg"
+    ]
+  },
+  "j-and-k": {
+    "folder": "j-and-k",
+    "slug": "j-and-k",
+    "cover": "/images/portfolio/j-and-k/0.jpg",
+    "gallery": [
+      "/images/portfolio/j-and-k/0.jpg",
+      "/images/portfolio/j-and-k/1.jpg"
+    ]
+  },
+  "karam": {
+    "folder": "karam",
+    "slug": "karam",
+    "cover": "/images/portfolio/karam/0.jpg",
+    "gallery": [
+      "/images/portfolio/karam/0.jpg",
+      "/images/portfolio/karam/1.jpg",
+      "/images/portfolio/karam/2.jpg"
+    ]
+  },
+  "koila": {
+    "folder": "koila",
+    "slug": "koila",
+    "cover": "/images/portfolio/koila/0.jpg",
+    "gallery": [
+      "/images/portfolio/koila/0.jpg",
+      "/images/portfolio/koila/1.jpg"
+    ]
+  },
+  "life-lift-by-tima": {
+    "folder": "life-lift-by-tima",
+    "slug": "life-lift-by-tima",
+    "cover": "/images/portfolio/life-lift-by-tima/0.jpg",
+    "gallery": [
+      "/images/portfolio/life-lift-by-tima/0.jpg",
+      "/images/portfolio/life-lift-by-tima/1.jpg",
+      "/images/portfolio/life-lift-by-tima/2.jpg",
+      "/images/portfolio/life-lift-by-tima/3.jpg"
+    ]
+  },
+  "maya-delight": {
+    "folder": "maya-delight",
+    "slug": "maya-delight",
+    "cover": "/images/portfolio/maya-delight/0.jpg",
+    "gallery": [
+      "/images/portfolio/maya-delight/0.jpg",
+      "/images/portfolio/maya-delight/1.jpg",
+      "/images/portfolio/maya-delight/2.jpg"
+    ]
+  },
+  "my-site": {
+    "folder": "my-site",
+    "slug": "my-site",
+    "cover": "/images/portfolio/my-site/0.jpg",
+    "gallery": [
+      "/images/portfolio/my-site/0.jpg",
+      "/images/portfolio/my-site/1.jpg",
+      "/images/portfolio/my-site/2.jpg",
+      "/images/portfolio/my-site/3.jpg"
+    ]
+  },
+  "news": {
+    "folder": "news",
+    "slug": "news",
+    "cover": "/images/portfolio/news/0.jpg",
+    "gallery": [
+      "/images/portfolio/news/0.jpg",
+      "/images/portfolio/news/1.jpg",
+      "/images/portfolio/news/2.jpg",
+      "/images/portfolio/news/3.jpg"
+    ]
+  },
+  "oasis": {
+    "folder": "oasis",
+    "slug": "oasis",
+    "cover": "/images/portfolio/oasis/0.jpg",
+    "gallery": [
+      "/images/portfolio/oasis/0.jpg",
+      "/images/portfolio/oasis/1.jpg"
+    ]
+  },
+  "pos": {
+    "folder": "pos",
+    "slug": "pos",
+    "cover": "/images/portfolio/pos/0.jpg",
+    "gallery": [
+      "/images/portfolio/pos/0.jpg",
+      "/images/portfolio/pos/1.jpg",
+      "/images/portfolio/pos/2.jpg",
+      "/images/portfolio/pos/3.jpg",
+      "/images/portfolio/pos/4.jpg",
+      "/images/portfolio/pos/5.jpg",
+      "/images/portfolio/pos/6.jpg",
+      "/images/portfolio/pos/7.jpg",
+      "/images/portfolio/pos/8.jpg",
+      "/images/portfolio/pos/9.jpg",
+      "/images/portfolio/pos/10.jpg",
+      "/images/portfolio/pos/11.jpg",
+      "/images/portfolio/pos/12.jpg",
+      "/images/portfolio/pos/13.jpg"
+    ]
+  },
+  "pos-2": {
+    "folder": "pos-2",
+    "slug": "pos-2",
+    "cover": "/images/portfolio/pos-2/0.jpg",
+    "gallery": [
+      "/images/portfolio/pos-2/0.jpg",
+      "/images/portfolio/pos-2/1.jpg"
+    ]
+  },
+  "prima": {
+    "folder": "prima",
+    "slug": "prima",
+    "cover": "/images/portfolio/prima/0.jpg",
+    "gallery": [
+      "/images/portfolio/prima/0.jpg",
+      "/images/portfolio/prima/1.jpg",
+      "/images/portfolio/prima/2.jpg",
+      "/images/portfolio/prima/3.jpg",
+      "/images/portfolio/prima/4.jpg",
+      "/images/portfolio/prima/5.jpg"
+    ]
+  },
+  "reaya": {
+    "folder": "reaya",
+    "slug": "reaya",
+    "cover": "/images/portfolio/reaya/0.jpg",
+    "gallery": [
+      "/images/portfolio/reaya/0.jpg",
+      "/images/portfolio/reaya/1.jpg",
+      "/images/portfolio/reaya/2.jpg",
+      "/images/portfolio/reaya/3.jpg",
+      "/images/portfolio/reaya/4.jpg",
+      "/images/portfolio/reaya/5.jpg"
+    ]
+  },
+  "rolling-grill": {
+    "folder": "rolling-grill",
+    "slug": "rolling-grill",
+    "cover": "/images/portfolio/rolling-grill/0.jpg",
+    "gallery": [
+      "/images/portfolio/rolling-grill/0.jpg",
+      "/images/portfolio/rolling-grill/1.jpg",
+      "/images/portfolio/rolling-grill/2.jpg"
+    ]
+  },
+  "set-elkil": {
+    "folder": "set-elkil",
+    "slug": "set-elkil",
+    "cover": "/images/portfolio/set-elkil/0.jpg",
+    "gallery": [
+      "/images/portfolio/set-elkil/0.jpg",
+      "/images/portfolio/set-elkil/1.jpg",
+      "/images/portfolio/set-elkil/2.jpg"
+    ]
+  },
+  "social-bang": {
+    "folder": "social-bang",
+    "slug": "social-bang",
+    "cover": "/images/portfolio/social-bang/0.jpg",
+    "gallery": [
+      "/images/portfolio/social-bang/0.jpg",
+      "/images/portfolio/social-bang/1.jpg"
+    ]
+  },
+  "styling-by-sal": {
+    "folder": "styling-by-sal",
+    "slug": "styling-by-sal",
+    "cover": "/images/portfolio/styling-by-sal/0.jpg",
+    "gallery": [
+      "/images/portfolio/styling-by-sal/0.jpg",
+      "/images/portfolio/styling-by-sal/1.jpg",
+      "/images/portfolio/styling-by-sal/2.jpg",
+      "/images/portfolio/styling-by-sal/3.jpg"
+    ]
+  },
+  "three-apes-media": {
+    "folder": "three-apes-media",
+    "slug": "three-apes-media",
+    "cover": "/images/portfolio/three-apes-media/0.jpg",
+    "gallery": [
+      "/images/portfolio/three-apes-media/0.jpg",
+      "/images/portfolio/three-apes-media/1.jpg",
+      "/images/portfolio/three-apes-media/2.jpg",
+      "/images/portfolio/three-apes-media/3.jpg"
+    ]
+  },
+  "vida": {
+    "folder": "vida",
+    "slug": "vida",
+    "cover": "/images/portfolio/vida/0.jpg",
+    "gallery": [
+      "/images/portfolio/vida/0.jpg",
+      "/images/portfolio/vida/1.jpg",
+      "/images/portfolio/vida/2.jpg",
+      "/images/portfolio/vida/3.jpg",
+      "/images/portfolio/vida/4.jpg"
+    ]
+  },
+  "zoufa": {
+    "folder": "zoufa",
+    "slug": "zoufa",
+    "cover": "/images/portfolio/zoufa/0.jpg",
+    "gallery": [
+      "/images/portfolio/zoufa/0.jpg",
+      "/images/portfolio/zoufa/1.jpg",
+      "/images/portfolio/zoufa/2.jpg",
+      "/images/portfolio/zoufa/3.jpg",
+      "/images/portfolio/zoufa/4.jpg"
+    ]
+  }
+}

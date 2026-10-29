@@ -105,6 +105,14 @@
   width: 90%;
 }
 
+.work-outcome {
+  width: 90%;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--textMuted);
+  margin: 0 0 18px;
+}
+
 .work-image {
   display: flex;
   width: 100%;
@@ -289,16 +297,42 @@
 
 /* Mobile: Stack work items vertically when GSAP pinning is disabled */
 @media only screen and (max-width: 768px) {
+  /* Neutralize leftover desktop pin wrappers after resize / HMR */
+  .pin-spacer-work,
+  .pin-spacer:has(> .work-section),
+  .pin-spacer:has(> .pin-spacer-work) {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    inset: auto !important;
+    transform: none !important;
+  }
+
+  .pin-spacer-work > .work-section,
+  .pin-spacer > .work-section {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+  }
+
   .work-section {
     height: auto;
     min-height: auto;
     margin-top: 40px;
-    overflow: visible;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
   }
 
   .work-container,
   .work-flex {
     height: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .work-flex {
@@ -306,6 +340,15 @@
     margin-left: 0;
     padding-right: 0;
     gap: 0;
+    transform: none !important;
+  }
+
+  /* Desktop uses 50000vw hairlines for the horizontal scrub track — kill on mobile */
+  .work-flex::before,
+  .work-flex::after {
+    display: none !important;
+    width: 0 !important;
+    content: none !important;
   }
 
   .work-box {

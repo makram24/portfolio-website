@@ -15,7 +15,7 @@ interface LoadingType {
 
 export const LoadingContext = createContext<LoadingType | null>(null);
 
-/** No 3D loader — use native scroll + initialFX (desktop 3D is >1024 only). */
+/** No 3D loader  use native scroll + initialFX (desktop 3D is >1024 only). */
 const shouldSkipLoader = () => window.innerWidth <= 1024;
 
 function runInitialFXWhenReady() {

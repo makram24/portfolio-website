@@ -145,30 +145,34 @@
   text-decoration: underline;
 }
 
-.agent-skills-toggle-wrap {
-  margin-top: 32px;
-  text-align: center;
+.agent-skills-cta {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 }
 
-.agent-skills-toggle {
-  appearance: none;
-  background: transparent;
-  border: 1px solid var(--accentColor);
-  color: var(--accentColor);
-  font-family: inherit;
-  font-size: 0.9rem;
+.agent-skills-shop-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  font-size: 0.95rem;
   font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 8px;
-  cursor: pointer;
+  color: var(--textOnAccent);
+  background: var(--accentColor);
+  border-radius: 999px;
+  text-decoration: none;
   transition:
-    background 0.2s ease,
-    color 0.2s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.agent-skills-toggle:hover {
-  background: var(--accentColor);
-  color: var(--bgColor, #0a0a0a);
+.agent-skills-shop-btn:hover {
+  color: var(--textOnAccent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px var(--glowAccentStrong);
 }
 
 @media only screen and (min-width: 768px) {

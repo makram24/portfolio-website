@@ -7,6 +7,7 @@ let charFlickerInterval: ReturnType<typeof setInterval> | undefined;
 const CHAR_SCROLL_IDS = [
   "char-landing",
   "char-about",
+  "char-highlights",
   "char-whatido",
 ] as const;
 
@@ -47,6 +48,16 @@ export function setCharTimeline(
       trigger: ".about-section",
       start: "center 55%",
       end: "bottom top",
+      scrub: true,
+      invalidateOnRefresh: true,
+    },
+  });
+  const tlHighlights = gsap.timeline({
+    scrollTrigger: {
+      id: "char-highlights",
+      trigger: ".highlights-section",
+      start: "top 85%",
+      end: "top 35%",
       scrub: true,
       invalidateOnRefresh: true,
     },
@@ -184,44 +195,21 @@ export function setCharTimeline(
           0.3
         );
 
-      tl3
-        .fromTo(
-          character.rotation,
-          { y: 0.92, x: 0.12 },
-          { y: 0, x: 0, duration: 4, ease: "power2.inOut" },
-          0
-        )
-        .fromTo(
-          neckBone!.rotation,
-          { x: 0.6 },
-          { x: 0, duration: 4, ease: "power2.inOut" },
-          0
-        )
-        .fromTo(
-          camera.position,
-          { x: camHome.x, y: 8.4, z: 75 },
-          { x: camHome.x, y: 12.2, z: 48, duration: 2.5, ease: "power2.inOut" },
-          0
-        )
-        .fromTo(
-          ".character-model",
-          { x: "-12%", y: "0%" },
-          { x: "32%", y: "10%", duration: 2.5, ease: "power2.inOut" },
-          0
-        )
-        .fromTo(
-          ".character-model",
-          { x: "32%", y: "10%" },
-          { x: "32%", y: "22%", duration: 1.5, ease: "power2.inOut" },
-          2.5
-        )
-        .fromTo(
-          camera.position,
-          { x: camHome.x, y: 12.2, z: 48 },
-          { x: camHome.x, y: 12.2, z: 42, duration: 1.5, ease: "power2.inOut" },
-          2.5
-        )
-        .fromTo(".whatIDO", { y: 0 }, { y: "15%", duration: 2 }, 0);
+      // Fade the character out as Highlights enters; keep it hidden for the rest
+      tlHighlights.fromTo(
+        ".character-model",
+        { autoAlpha: 1, pointerEvents: "inherit" },
+        {
+          autoAlpha: 0,
+          pointerEvents: "none",
+          duration: 1,
+          ease: "power2.inOut",
+        },
+        0
+      );
+
+      // Character is already hidden by Highlights  only nudge What I Do content
+      tl3.fromTo(".whatIDO", { y: 0 }, { y: "15%", duration: 2 }, 0);
     }
   }
 }
@@ -239,7 +227,7 @@ export function killSectionScrollSetup() {
 export function setAllTimeline() {
   killSectionScrollSetup();
 
-  // Mobile: scrub is unreliable with native scroll — use enter / reverse scroll triggers
+  // Mobile: scrub is unreliable with native scroll  use enter / reverse scroll triggers
   if (window.innerWidth <= 768) {
     const scrollOptions = {
       start: "top bottom",

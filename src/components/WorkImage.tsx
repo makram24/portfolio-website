@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { MdArrowOutward } from "react-icons/md";
 
 interface Props {
@@ -21,25 +22,45 @@ const WorkImage = (props: Props) => {
     }
   };
 
+  const isInternal = Boolean(props.link?.startsWith("/"));
+
+  const content = (
+    <>
+      {props.link && (
+        <div className="work-link">
+          <MdArrowOutward />
+        </div>
+      )}
+      <img src={props.image} alt={props.alt} />
+      {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
+    </>
+  );
+
   return (
     <div className="work-image">
-      <a
-        className="work-image-in"
-        href={props.link}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={() => setIsVideo(false)}
-        target="_blank"
-        rel="noopener noreferrer"
-        data-cursor={"disable"}
-      >
-        {props.link && (
-          <div className="work-link">
-            <MdArrowOutward />
-          </div>
-        )}
-        <img src={props.image} alt={props.alt} />
-        {isVideo && <video src={video} autoPlay muted playsInline loop></video>}
-      </a>
+      {isInternal ? (
+        <Link
+          className="work-image-in"
+          to={props.link!}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={() => setIsVideo(false)}
+          data-cursor={"disable"}
+        >
+          {content}
+        </Link>
+      ) : (
+        <a
+          className="work-image-in"
+          href={props.link}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={() => setIsVideo(false)}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-cursor={"disable"}
+        >
+          {content}
+        </a>
+      )}
     </div>
   );
 };

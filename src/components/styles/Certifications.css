@@ -1,229 +1,221 @@
-/* Mirrors education-section layout and motion language */
 .certifications-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  place-items: center;
   justify-content: center;
   position: relative;
-  opacity: 1;
-  height: auto;
-  margin: auto;
-  margin-bottom: 200px;
-  padding: 100px 0;
+  z-index: 2;
+  isolation: isolate;
+  margin: 0 auto 80px;
+  padding: 100px 0 120px;
+  background-color: var(--backgroundColor);
+  overflow: hidden;
+}
+
+.certifications-container {
+  width: 100%;
+  max-width: 900px;
+}
+
+.certifications-header {
+  text-align: center;
+  margin: 0 auto 64px;
+  max-width: 640px;
 }
 
 .certifications-section h2 {
-  font-size: 70px;
-  line-height: 70px;
+  margin: 0 0 16px;
+  font-size: clamp(2.5rem, 6vw, 4.375rem);
+  line-height: 1.05;
   font-weight: 400;
+  letter-spacing: -0.02em;
   text-align: center;
   background: linear-gradient(0deg, var(--accentColor), var(--textColor));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: transparent;
-  margin-top: 50px;
-  margin-bottom: 90px;
 }
 
 .certifications-section h2 > span {
   font-family: var(--font-body);
   font-weight: 300;
+  font-style: italic;
+  -webkit-text-fill-color: var(--accentColor);
+  background: none;
+}
+
+.certifications-lead {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--textMuted);
 }
 
 .certifications-info {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
   width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  --certifications-year-col: 96px;
+  --certifications-gap: 56px;
+  padding-left: 0;
 }
 
 .certifications-info-box {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 50px;
+  display: grid;
+  grid-template-columns: var(--certifications-year-col) 1fr;
+  column-gap: var(--certifications-gap);
+  align-items: start;
+  padding: 28px 0 32px;
+  border-bottom: 1px solid var(--borderColor);
 }
 
-.certifications-info-box p {
-  width: 40%;
-  font-size: 14px;
-  font-weight: 300;
-  margin: 0;
-  line-height: 20px;
-  color: var(--textMuted);
+.certifications-info-box:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.certifications-info-in {
-  display: flex;
-  width: 40%;
-  justify-content: space-between;
-  gap: 50px;
-}
-
-.certifications-info h3 {
-  font-size: 48px;
-  margin: 0;
-  font-weight: 500;
-  line-height: 45px;
+.certifications-year {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-display);
-}
-
-.certifications-info h4 {
-  font-size: 33px;
-  line-height: 30px;
-  letter-spacing: 0.8px;
-  font-weight: 500;
-  margin: 0;
-}
-
-.certifications-info h5 {
-  font-weight: 400;
-  letter-spacing: 0.7px;
-  font-size: 20px;
-  text-transform: capitalize;
-  margin: 10px 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.2;
   color: var(--accentColor);
+  letter-spacing: -0.03em;
+  text-align: right;
+  padding-right: 12px;
+  padding-top: 4px;
+  word-break: break-word;
+}
+
+.certifications-body {
+  min-width: 0;
+}
+
+.certifications-body h3 {
+  margin: 0;
+  font-size: clamp(1.05rem, 2vw, 1.4rem);
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--textColor);
+}
+
+.certifications-issuer {
+  margin: 8px 0 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accentColor);
+}
+
+.certifications-meta {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  color: var(--textMuted);
+  line-height: 1.4;
 }
 
 .certifications-timeline {
   position: absolute;
-  top: -50px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
+  top: 0;
+  left: calc(
+    var(--certifications-year-col) + (var(--certifications-gap) / 2) - 1px
+  );
+  width: 2px;
   height: 100%;
   background-image: linear-gradient(
-    to top,
-    var(--accentTimeline) 20%,
-    var(--accentColor) 50%,
-    transparent 95%
+    to bottom,
+    transparent 0%,
+    var(--accentColor) 10%,
+    var(--accentTimeline) 90%,
+    transparent 100%
   );
-  max-height: 0%;
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .certifications-dot {
   position: absolute;
-  bottom: 0;
+  bottom: 10%;
   left: 50%;
   transform: translate(-50%, 50%);
   background-color: var(--accentTimeline);
-  width: 10px;
-  height: 10px;
-  border-radius: 50px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   box-shadow:
-    0 0 5px 2px var(--accentTimelineGlow),
-    0 0 15px 8px var(--accentColorSoft),
-    0 0 110px 20px var(--accentMuted);
+    0 0 4px 1px var(--accentTimelineGlow),
+    0 0 12px 4px var(--accentColorSoft);
   animation: certifications-timeline-pulse 0.8s linear infinite forwards;
 }
 
 @keyframes certifications-timeline-pulse {
-  10%,
-  20%,
-  50%,
-  70%,
-  90% {
-    box-shadow: 0 0 5px 2px var(--accentTimelineGlow);
-  }
-
-  10%,
-  30%,
   0%,
-  100%,
-  64%,
-  80% {
+  100% {
     box-shadow:
-      0 0 5px 2px var(--accentTimelineGlow),
-      0 0 15px 5px var(--accentColorSoft),
-      0 0 110px 20px var(--accentMuted);
-  }
-}
-
-@media only screen and (max-width: 1400px) {
-  .certifications-section h2 {
-    font-size: 50px;
-    line-height: 50px;
+      0 0 4px 1px var(--accentTimelineGlow),
+      0 0 10px 3px var(--accentColorSoft);
   }
 
-  .certifications-info h4 {
-    font-size: 22px;
-    line-height: 24px;
-    width: 180px;
-  }
-
-  .certifications-info h5 {
-    font-size: 17px;
-  }
-
-  .certifications-info h3 {
-    font-size: 40px;
-  }
-
-  .certifications-info-in {
-    width: 45%;
-    gap: 20px;
-  }
-
-  .certifications-info-box p {
-    width: 45%;
-  }
-}
-
-@media only screen and (max-width: 1025px) {
-  .certifications-section {
-    padding: 70px 0;
-    padding-top: 100px;
-    margin-bottom: 0;
+  50% {
+    box-shadow: 0 0 3px 1px var(--accentTimelineGlow);
   }
 }
 
 @media only screen and (max-width: 900px) {
-  .certifications-info-box {
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 70px;
+  .certifications-section {
+    padding: 80px 0 90px;
+    margin-bottom: 40px;
   }
 
-  .certifications-info-in,
-  .certifications-info-box p {
-    width: 100%;
-    padding-left: 10%;
-    box-sizing: border-box;
+  .certifications-header {
+    margin-bottom: 40px;
+    text-align: left;
+    max-width: none;
   }
 
-  .certifications-timeline {
-    left: 0;
+  .certifications-section h2 {
+    text-align: left;
   }
 
-  .certifications-container {
-    width: calc(100% - 25px);
+  .certifications-info {
+    --certifications-year-col: 64px;
+    --certifications-gap: 28px;
+  }
+
+  .certifications-year {
+    font-size: 1.1rem;
+    text-align: left;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .certifications-section h2 {
-    width: 100%;
-    font-size: 45px;
-    line-height: 45px;
-    margin-top: 0;
-  }
-
-  .certifications-info h3 {
-    font-size: 25px;
-    line-height: 1.25;
-  }
-
-  .certifications-info-in,
-  .certifications-info-box p {
-    padding-left: 5%;
-  }
-
   .certifications-section {
-    padding-top: 90px;
-    align-items: start;
-    place-items: inherit;
-    justify-content: left;
+    padding: 64px 0 72px;
+  }
+
+  .certifications-info {
+    --certifications-year-col: 0px;
+    --certifications-gap: 24px;
+    padding-left: 24px;
+  }
+
+  .certifications-info-box {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .certifications-year {
+    order: -1;
+    text-align: left;
+  }
+
+  .certifications-timeline {
+    left: 6px;
   }
 }

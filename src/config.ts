@@ -1,7 +1,15 @@
-import { projects, homepageProjects } from "./data/projects";
+import {
+  projects,
+  homepageProjects,
+  productProjects,
+  clientProjects,
+  featuredClientProjects,
+  archivedClientProjects,
+} from "./data/projects";
 import {
   agentSkills,
   agentSkillsStorefront,
+  featuredAgentSkills,
   liveAgentSkills,
 } from "./data/agentSkills";
 
@@ -12,7 +20,7 @@ export const config = {
     title: "Full Stack & AI Agent Engineer",
     subtitle: "MSc Computer Science · BME",
     description:
-      "I build friendly full-stack products and helpful AI agent skills — MCP tools, safe operators, and React/Flutter apps. Currently finishing my MSc at BME in Budapest.",
+      "I build friendly full-stack products and helpful AI agent skills  MCP tools, safe operators, and React/Flutter apps. Currently finishing my MSc at BME in Budapest.",
   },
   landing: {
     subtitle1: "I build apps, agents & useful tools",
@@ -25,11 +33,10 @@ export const config = {
     phone: "+36 30 746 6581",
     phoneHref: "tel:+36307466581",
     location: "Budapest, Hungary",
-    address: "Kunigunda útja 25, 1037",
   },
   openTo: {
     headline:
-      "Coursework done — I'm free to start a full-time role whenever you're ready",
+      "Coursework done  I'm free to start a full-time role whenever you're ready",
     items: [
       { label: "Happy to do", value: "Full-time · Contract · Freelance" },
       { label: "Where", value: "Budapest · or remote across the EU" },
@@ -37,16 +44,16 @@ export const config = {
         label: "Into",
         value: "React · MCP · AI agents · full-stack products",
       },
-      { label: "Status", value: "Say hi — I'm open" },
+      { label: "Status", value: "Say hi  I'm open" },
     ],
     responseTime: "I usually write back within a day or two.",
   },
   about: {
     title: "About Me",
     description:
-      "Hey — I'm Makram. I like building things people actually enjoy using: full-stack apps, mobile products, and a growing set of AI agent skills on Agensi, SkillHQ, and BuySkills. I'm wrapping up my MSc in Computer Science Engineering at BME.",
+      "Hey  I'm Makram. I like building things people actually enjoy using: full-stack apps, mobile products, and a growing set of AI agent skills on Agensi, SkillHQ, and BuySkills. I'm wrapping up my MSc in Computer Science Engineering at BME.",
     clientNote:
-      "I've shipped agency sites with teams like The Social Bang and Brainy Media, built the Fleeku marketplace apps, and now publish Cursor/Claude skills that keep agents careful and useful. Always happy to collaborate.",
+      "I've shipped agency sites with teams like The Social Bang and Brainy Media, and now publish Cursor/Claude skills that keep agents careful and useful. Always happy to collaborate.",
   },
   highlights: [
     { value: "4+", label: "Years experience" },
@@ -68,100 +75,120 @@ export const config = {
       school: "Lebanese International University (LIU)",
       period: "2019 – 2022",
       location: "Lebanon",
-      detail: "Academic excellence — graduated with a 3.56 GPA.",
+      detail: "Academic excellence  graduated with a 3.56 GPA.",
     },
   ],
   certifications: [
     {
+      name: "Intelligent by Design: Build an AI Agent",
+      issuer: "IBM",
+      period: "Oct 2026",
+    },
+    {
+      name: "Claude Academy: Model Context Protocol  Advanced Topics",
+      issuer: "Anthropic",
+      period: "Oct 2026",
+    },
+    {
+      name: "Claude Academy: Introduction to Model Context Protocol",
+      issuer: "Anthropic",
+      period: "Oct 2026",
+    },
+    {
+      name: "Claude Academy: Claude Code 101",
+      issuer: "Anthropic",
+      period: "Oct 2026",
+    },
+    {
+      name: "Data Software Engineering Program 25/26",
+      issuer: "EPAM Systems",
+      period: "Aug 2026",
+    },
+    {
       name: "CCNA Routing & Switching: Scaling Networks",
       issuer: "Cisco",
-      period: "Certified",
+      period: "Feb 2022",
     },
     {
       name: "CCNAv7: Switching, Routing, and Wireless Essentials",
       issuer: "Cisco",
-      period: "Certified",
+      period: "Jun 2021",
+    },
+    {
+      name: "CCNA R&S: Introduction to Networks",
+      issuer: "Cisco Networking Academy",
+      period: "Mar 2021",
     },
     {
       name: "Microsoft Security Fundamentals",
       issuer: "Microsoft",
       period: "Master Level",
     },
-    {
-      name: "Digital Marketing Fundamentals",
-      issuer: "Maharat min Google",
-      period: "Certified",
-    },
-    {
-      name: "Cloud Computing Workshop",
-      issuer: "IEEE LIU Student Branch",
-      period: "Workshop",
-    },
   ],
   engineeringProjects: [
     {
-      title: "MiniCRM MCP + Operator Skills",
-      category: "MCP / AI Agents",
+      title: "MiniCRM MCP",
+      category: "MCP / TypeScript",
       description:
-        "Public MiniCRM MCP server plus paid operator skills (EN/HU) with schema-first CategoryIds and confirm-before-write on every mutation. Pattern extended into the CRM MCP Builder product.",
-      stack: ["TypeScript", "MCP", "miniCRM", "Cursor skills"],
-    },
-    {
-      title: "Agensi Skills Catalog",
-      category: "Product / AI",
-      description:
-        "24 one-time paid agent skills across Agensi, SkillHQ, and BuySkills — CI/CD Doctor, Env Doctor Pro, MCP Operator, Paid Code Reviewer, PR Ship Pack, and more.",
-      stack: ["Agent skills", "MCP", "CI/CD", "Dev tooling"],
+        "MCP server that lets AI agents operate miniCRM safely with schema-first tools  powers the MiniCRM Operator skills.",
+      stack: ["TypeScript", "MCP", "miniCRM"],
+      url: "https://github.com/makram24/MiniCRM-MCP",
     },
     {
       title: "ReleaseGuard Agent",
       category: "AI / DevOps",
       description:
-        "AI-assisted pull request risk and release readiness agent — severity-rated analysis before merge and deploy.",
+        "AI-assisted pull request risk and release readiness agent  severity-rated analysis before you merge and ship.",
       stack: ["TypeScript", "AI agents", "PR review"],
+      url: "https://github.com/makram24/ReleaseGuard-Agent",
     },
     {
-      title: "Smart City Agent",
-      category: "Full Stack / AI",
+      title: "AI Smart City Project",
+      category: "Full Stack / Smart Cities",
       description:
-        "React dashboard integrating real-time Budapest city APIs with an AI chat interface. Specialized agents parse natural language and visualize live transport routes on interactive maps.",
-      stack: ["React", "Firebase", "OpenStreetMap", "City APIs"],
+        "React dashboard with Budapest city APIs and an AI chat interface for live transport routes and service locations on the map.",
+      stack: ["TypeScript", "React", "Firebase", "OpenStreetMap"],
+      url: "https://github.com/makram24/AI-Smart-City-Project",
     },
     {
-      title: "Fleeku Marketplace Suite",
-      category: "Mobile & Product",
+      title: "React POS",
+      category: "Web / Commerce",
       description:
-        "Customer and provider Flutter apps with a React admin panel — full marketplace product delivery from onboarding to operations.",
-      stack: ["Flutter", "Dart", "React", "Firebase"],
+        "Point-of-sale web app for retail and restaurant workflows, built with React.",
+      stack: ["JavaScript", "React", "POS"],
+      url: "https://github.com/makram24/React-Pos",
     },
     {
-      title: "Event-Driven Order Platform",
-      category: "Backend / Systems",
+      title: "Portfolio Website",
+      category: "TypeScript / React",
       description:
-        "Production-grade event-driven order and inventory management platform — asynchronous workflows, inventory consistency, and service boundaries.",
-      stack: ["TypeScript", "Events", "Inventory", "Orders"],
+        "This personal portfolio site  React, Three.js character, and project showcase.",
+      stack: ["TypeScript", "React", "Three.js"],
+      url: "https://github.com/makram24/portfolio-website",
+    },
+    {
+      title: "Abelton Claude",
+      category: "JavaScript / AI",
+      description:
+        "Claude-assisted Ableton-related tooling and experiments in JavaScript.",
+      stack: ["JavaScript", "Claude", "Creative tools"],
+      url: "https://github.com/makram24/Abelton-Claude",
     },
   ],
   experiences: [
     {
-      position: "Creator — Agent Skills & MCP",
-      company: "Agensi · SkillHQ · BuySkills",
-      period: "2026 - Present",
-      location: "Remote",
+      position: "Full Stack Developer",
+      company: "Freelance",
+      period: "2023 - Present",
+      location: "Remote / International",
       description:
-        "I publish paid AI agent skills and MCP tools that help developers ship safely — operators that ask before they write, CRM bridges, and handy shipping utilities.",
+        "Scalable website development and UI/UX design for international clients with secure PHP/MySQL backends.",
       responsibilities: [
-        "Shipped 24 skills across three shops (8 live on Agensi, more on the way)",
-        "Built MiniCRM MCP (public) and the CRM MCP Builder for mock-to-live bridges",
-        "Kept agents careful: read vs write, confirmation gates, schema-first IDs",
+        "Providing full-stack delivery for brands and agencies worldwide",
+        "Implementing secure backend infrastructures to ensure data integrity",
+        "CMS and custom web application builds",
       ],
-      technologies: [
-        "MCP",
-        "TypeScript",
-        "Cursor skills",
-        "CI/CD",
-        "REST APIs",
-      ],
+      technologies: ["React", "PHP", "MySQL", "WordPress", "UI/UX"],
     },
     {
       position: "Full Stack Developer & Web Designer",
@@ -185,20 +212,6 @@ export const config = {
     },
     {
       position: "Full Stack Developer",
-      company: "Freelance",
-      period: "2023 - Present",
-      location: "Remote / International",
-      description:
-        "Scalable website development and UI/UX design for international clients with secure PHP/MySQL backends.",
-      responsibilities: [
-        "Providing full-stack delivery for brands and agencies worldwide",
-        "Implementing secure backend infrastructures to ensure data integrity",
-        "CMS and custom web application builds",
-      ],
-      technologies: ["React", "PHP", "MySQL", "WordPress", "UI/UX"],
-    },
-    {
-      position: "Full Stack Developer",
       company: "AWK Development",
       period: "2021 - 2022",
       location: "Lebanon",
@@ -214,7 +227,12 @@ export const config = {
   ],
   projects: [...projects],
   homepageProjects: [...homepageProjects],
+  productProjects: [...productProjects],
+  clientProjects: [...clientProjects],
+  featuredClientProjects: [...featuredClientProjects],
+  archivedClientProjects: [...archivedClientProjects],
   agentSkills: [...agentSkills],
+  featuredAgentSkills: [...featuredAgentSkills],
   liveAgentSkills: [...liveAgentSkills],
   agentSkillsStorefront,
   contact: {
@@ -233,7 +251,7 @@ export const config = {
       title: "FULL-STACK DEVELOPMENT",
       description: "Web & mobile you can ship",
       details:
-        "I build React, TypeScript, PHP, and Flutter apps that feel solid in production — from client websites to marketplace suites with Firebase and MySQL.",
+        "I build React, TypeScript, PHP, and Flutter apps that feel solid in production  from client websites to marketplace suites with Firebase and MySQL.",
       tools: [
         "React.js",
         "TypeScript",
@@ -249,7 +267,7 @@ export const config = {
       title: "AI AGENTS & MCP",
       description: "Skills that play nice",
       details:
-        "I design Cursor/Claude skills and MCP servers so agents ask before they write — CRM bridges, CI/CD helpers, and operators you can trust.",
+        "I design Cursor/Claude skills and MCP servers so agents ask before they write  CRM bridges, CI/CD helpers, and operators you can trust.",
       tools: [
         "MCP",
         "Agent skills",

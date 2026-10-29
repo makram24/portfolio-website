@@ -87,9 +87,6 @@ const Contact = () => {
             <p>
               <span>{config.social.location}</span>
             </p>
-            <p>
-              <span>{config.social.address}</span>
-            </p>
           </div>
           {socialLinks.length > 0 && (
             <div className="contact-box">

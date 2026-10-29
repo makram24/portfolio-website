@@ -11,33 +11,44 @@ const getDisplayYear = (period: string) => {
 
 const Education = () => {
   return (
-    <div className="education-section section-container" id="education">
+    <section className="education-section section-container" id="education">
       <div className="education-container">
-        <h2>
-          How I got <span>here</span>
-          <br /> &amp; what I studied
-        </h2>
+        <header className="education-header">
+          <h2>
+            How I got <span>here</span>
+          </h2>
+          <p className="education-lead">
+            Schools, degrees, and the path that got me building software.
+          </p>
+        </header>
+
         <div className="education-info">
-          <div className="education-timeline">
+          <div className="education-timeline" aria-hidden="true">
             <div className="education-dot" />
           </div>
-          {config.education.map((item, index) => (
-            <div key={index} className="education-info-box">
-              <div className="education-info-in">
-                <div className="education-role">
-                  <h4>{item.degree}</h4>
-                  <h5>{item.school}</h5>
-                </div>
-                <h3>{getDisplayYear(item.period)}</h3>
+
+          {config.education.map((item) => (
+            <article
+              key={`${item.school}-${item.period}`}
+              className="education-info-box"
+            >
+              <span className="education-year">
+                {getDisplayYear(item.period)}
+              </span>
+              <div className="education-body">
+                <h3>{item.degree}</h3>
+                <p className="education-school">{item.school}</p>
+                <p className="education-meta">
+                  {item.period}
+                  {item.location ? ` · ${item.location}` : ""}
+                </p>
+                <p className="education-description">{item.detail}</p>
               </div>
-              <p>
-                {item.detail} · {item.location} · {item.period}
-              </p>
-            </div>
+            </article>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -78,17 +78,28 @@
 @media only screen and (max-width: 768px) {
   .cta-section {
     padding: 60px 20px;
+    box-sizing: border-box;
+  }
+
+  .cta-inner {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .cta-buttons {
     flex-direction: column;
     width: 100%;
+    max-width: 100%;
     gap: 12px;
+    box-sizing: border-box;
   }
 
   .cta-btn {
     justify-content: center;
     width: 100%;
+    max-width: 100%;
     padding: 13px 24px;
+    box-sizing: border-box;
   }
 }

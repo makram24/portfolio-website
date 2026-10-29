@@ -144,7 +144,7 @@ export const INTERACTABLES: Interactable[] = [
     height: TILE_SIZE * 2,
     prompt: "Education",
     title: "Bookshelf",
-    body: config.education.map((e) => `${e.degree} — ${e.school} (${e.period})`).join("\n\n"),
+    body: config.education.map((e) => `${e.degree}  ${e.school} (${e.period})`).join("\n\n"),
     tags: ["BME", "LIU", "MSc"],
   },
   {
@@ -156,7 +156,7 @@ export const INTERACTABLES: Interactable[] = [
     prompt: "Certs",
     title: "Work desk",
     body: config.certifications.map((c) => `${c.name} (${c.issuer})`).join("\n"),
-    tags: ["CCNA", "Security", "IEEE"],
+    tags: ["IBM", "Anthropic", "MCP", "CCNA", "EPAM"],
   },
   {
     id: "plant",
@@ -232,7 +232,7 @@ export const INTERACTABLES: Interactable[] = [
     height: TILE_SIZE,
     prompt: "Coffee",
     title: "Coffee station",
-    body: "Fuel for late-night builds and MSc deadlines. Usually a flat white — sometimes just one more deploy.",
+    body: "Fuel for late-night builds and MSc deadlines. Usually a flat white  sometimes just one more deploy.",
     tags: ["Flat white", "Budapest", "Night owl"],
   },
   {

@@ -8,7 +8,7 @@ const CallToAction = () => {
       <div className="cta-inner">
         <h2 className="cta-title">Want to hang out in my pixel room?</h2>
         <p className="cta-lead">
-          Or just drop me a note — I&apos;m easy to reach and happy to talk
+          Or just drop me a note  I&apos;m easy to reach and happy to talk
           projects, roles, or ideas.
         </p>
         <div className="cta-buttons">

@@ -10,59 +10,75 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Work = () => {
   useEffect(() => {
-    // Disable pinning on mobile to allow scrolling
-    if (
-      window.innerWidth <= 768 ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      return;
-    }
+    const mm = gsap.matchMedia();
 
-    let translateX = 0;
-
-    function setTranslateX() {
-      const box = document.getElementsByClassName("work-box");
-      if (box.length === 0) return;
-      const rectLeft = document
-        .querySelector(".work-container")!
-        .getBoundingClientRect().left;
-      const rect = box[0].getBoundingClientRect();
-      const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
-      const padding: number =
-        parseInt(window.getComputedStyle(box[0]).padding) / 2;
-      translateX = rect.width * box.length - (rectLeft + parentWidth) + padding;
-    }
-
-    setTranslateX();
-
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".work-section",
-        start: "top top",
-        end: `+=${translateX}`,
-        scrub: 1,
-        pin: true,
-        pinSpacing: true,
-        anticipatePin: 1,
-        id: "work",
-        invalidateOnRefresh: true,
+    mm.add(
+      {
+        isDesktop: "(min-width: 769px)",
+        reduceMotion: "(prefers-reduced-motion: reduce)",
       },
-    });
+      (context) => {
+        const { isDesktop, reduceMotion } = context.conditions as {
+          isDesktop: boolean;
+          reduceMotion: boolean;
+        };
 
-    timeline.to(".work-flex", {
-      x: -translateX,
-      ease: "none",
-    });
+        if (!isDesktop || reduceMotion) {
+          gsap.set(".work-flex", { clearProps: "transform,x" });
+          return;
+        }
 
-    // Refresh after layout settles so pin spacing clears prior sections
-    const refreshId = window.setTimeout(() => ScrollTrigger.refresh(), 100);
-    ScrollTrigger.refresh();
+        let translateX = 0;
 
-    // Clean up
+        function setTranslateX() {
+          const box = document.getElementsByClassName("work-box");
+          if (box.length === 0) return;
+          const container = document.querySelector(".work-container");
+          if (!container) return;
+          const rectLeft = container.getBoundingClientRect().left;
+          const rect = box[0].getBoundingClientRect();
+          const parentWidth = box[0].parentElement!.getBoundingClientRect().width;
+          const padding =
+            parseInt(window.getComputedStyle(box[0]).padding, 10) / 2 || 0;
+          translateX =
+            rect.width * box.length - (rectLeft + parentWidth) + padding;
+        }
+
+        setTranslateX();
+
+        const timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".work-section",
+            start: "top top",
+            end: () => `+=${translateX}`,
+            scrub: 1,
+            pin: true,
+            pinSpacing: true,
+            anticipatePin: 1,
+            id: "work",
+            invalidateOnRefresh: true,
+            onRefresh: setTranslateX,
+          },
+        });
+
+        timeline.to(".work-flex", {
+          x: () => -translateX,
+          ease: "none",
+        });
+
+        const refreshId = window.setTimeout(() => ScrollTrigger.refresh(), 100);
+
+        return () => {
+          window.clearTimeout(refreshId);
+          timeline.kill();
+          ScrollTrigger.getById("work")?.kill();
+          gsap.set(".work-flex", { clearProps: "transform,x" });
+        };
+      }
+    );
+
     return () => {
-      window.clearTimeout(refreshId);
-      timeline.kill();
-      ScrollTrigger.getById("work")?.kill();
+      mm.revert();
     };
   }, []);
   return (
@@ -83,6 +99,7 @@ const Work = () => {
                     <p>{project.category}</p>
                   </div>
                 </div>
+                <p className="work-outcome">{project.description}</p>
                 <h4>Tools and features</h4>
                 <p>{project.technologies}</p>
               </div>
@@ -97,9 +114,9 @@ const Work = () => {
           <div className="work-box work-box-cta">
             <div className="see-all-works">
               <h3>Curious for more?</h3>
-              <p>Client sites, products, and side projects — all in one place</p>
+              <p>Products up front, client sites in the archive</p>
               <Link to="/myworks" className="see-all-btn" data-cursor="disable">
-                Browse everything →
+                Browse all works →
               </Link>
             </div>
           </div>

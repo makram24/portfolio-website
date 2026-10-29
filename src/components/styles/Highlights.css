@@ -1,5 +1,11 @@
+.highlights-section.section-container {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .highlights-section {
-  padding: 60px 0 80px;
+  padding: 60px 40px 80px;
   position: relative;
   z-index: 2;
 }
@@ -8,8 +14,9 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  max-width: 900px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: none;
+  margin: 0;
 }
 
 .highlight-card {
@@ -50,5 +57,12 @@
   .highlights-grid {
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .highlights-section {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }

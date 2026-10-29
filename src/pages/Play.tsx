@@ -159,7 +159,7 @@ const Play = () => {
 
             {nearby && !activeModal && (
               <div className="pixel-prompt" role="status">
-                Press <kbd>E</kbd> — {nearby.prompt}
+                Press <kbd>E</kbd>  {nearby.prompt}
               </div>
             )}
           </div>

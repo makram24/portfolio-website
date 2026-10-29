@@ -26,6 +26,10 @@ const VercelSpeedInsights = enableVercelInsights
 const CharacterModel = lazy(() => import("./components/Character"));
 const MainContainer = lazy(() => import("./components/MainContainer"));
 const MyWorks = lazy(() => import("./pages/MyWorks"));
+const ProjectDetail = lazy(() => import("./pages/ProjectDetail"));
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const Shop = lazy(() => import("./pages/Shop"));
 const Play = lazy(() => import("./pages/Play"));
 import { LoadingProvider } from "./context/LoadingProvider";
 import { routerBasename } from "./utils/publicUrl";
@@ -56,6 +60,38 @@ const App = () => {
           element={
             <Suspense fallback={<RouteLoading />}>
               <MyWorks />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/myworks/:slug"
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <ProjectDetail />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/blog"
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <Blog />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/blog/:slug"
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <BlogPost />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/shop"
+          element={
+            <Suspense fallback={<RouteLoading />}>
+              <Shop />
             </Suspense>
           }
         />
