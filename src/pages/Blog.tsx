@@ -22,7 +22,12 @@ const BlogCard = ({ post }: { post: BlogPost }) => (
     data-cursor="disable"
   >
     <div className="blog-card-image">
-      <img src={post.cover} alt="" loading="lazy" decoding="async" />
+      <img
+        src={post.cover}
+        alt={`Cover for ${post.title}`}
+        loading="lazy"
+        decoding="async"
+      />
     </div>
     <div className="blog-card-body">
       <div className="blog-card-meta">
@@ -111,7 +116,10 @@ const Blog = () => {
             data-cursor="disable"
           >
             <div className="blog-featured-image">
-              <img src={featured.cover} alt="" />
+              <img
+                src={featured.cover}
+                alt={`Cover for ${featured.title}`}
+              />
             </div>
             <div className="blog-featured-body">
               <div className="blog-card-meta">

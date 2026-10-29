@@ -71,7 +71,12 @@ const ProjectDetail = () => {
               aria-label={`Show image ${index + 1}`}
               data-cursor="disable"
             >
-              <img src={src} alt="" loading="lazy" decoding="async" />
+              <img
+                src={src}
+                alt={`${project.title} gallery image ${index + 1}`}
+                loading="lazy"
+                decoding="async"
+              />
             </button>
           ))}
         </div>

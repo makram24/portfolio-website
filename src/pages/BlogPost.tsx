@@ -64,7 +64,7 @@ const BlogPost = () => {
       </div>
 
       <div className="blog-post-hero">
-        <img src={post.cover} alt="" />
+        <img src={post.cover} alt={`Cover for ${post.title}`} />
       </div>
 
       <div className="blog-post-layout">
@@ -118,7 +118,11 @@ const BlogPost = () => {
                 className="blog-post-related-card"
                 data-cursor="disable"
               >
-                <img src={item.cover} alt="" loading="lazy" />
+                <img
+                  src={item.cover}
+                  alt={`Cover for ${item.title}`}
+                  loading="lazy"
+                />
                 <div>
                   <span>{item.category}</span>
                   <h3>{item.title}</h3>
